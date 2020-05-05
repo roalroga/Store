@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-6">
+        <h3>persona works!</h3>
+        <p>Nombre:</p><br>
+        <input class="form-control" type="text" [(ngModel)]="personaEntidad.Nombre"><br> 
+        <p>Apellido</p><br>
+        <input class="form-control" type="text" [(ngModel)]="personaEntidad.Apellido">
+        <div class="row">
+            <div class="col-md-7">
+                <p>Numero</p><br>
+                <input class="form-control" type="text" [(ngModel)]="personaEntidad.Numero">
+            </div>
+            <div class="col-md-5">
+                <div class="dropdown  mt-5">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Pais
+                  </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" *ngFor="let pais of listaPaises" href="#" (click)="capturarPais(pais.Nombre)">{{pais.Nombre}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary mt-2" (click)="guardar()">Save</button>
+        <br>
+        <!-- fin PERSON -->
+
+    </div>
+    <div class="col-6">
+        <!-- INICIO LISTA -->
+        <div class="col-12">
+            <ul *ngFor="let persona of listaPersonas">
+                <li [ngStyle]="{'color':getColor(persona.Pais) }">Nombre: {{persona.Nombre}}</li>
+            </ul>
+            <br>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" [ngStyle]="{'width': porcentaje+'%'}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+        <div class="col-12">
+            <ul class="list-group" *ngFor="let covid of datoList">
+                <li appDestacarpalabra class="list-group-item">Confirmados: {{covid.confirmed | number}}</li>
+                <li class="list-group-item">Recuperados: {{covid.recovered| number}}</li>
+                <li class="list-group-item">Criticos: {{covid.critical| number}}</li>
+                <li class="list-group-item">Muertos: {{covid.deaths| number}}</li>
+            </ul>
+        </div>
+
+    </div>
+
+
+</div>

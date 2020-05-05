@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-12">
+    <ul class="list-group" *ngFor="let covid of datoList">
+      <li appDestacarpalabra class="list-group-item">
+        Confirmados: {{ covid.confirmed | number }}
+      </li>
+      <li class="list-group-item">
+        Recuperados: {{ covid.recovered | number }}
+      </li>
+      <li class="list-group-item">Criticos: {{ covid.critical | number }}</li>
+      <li class="list-group-item">Muertos: {{ covid.deaths | number }}</li>
+    </ul>
+  </div>
+</div>
